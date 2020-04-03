@@ -24,7 +24,7 @@ function dateMonth(month) {
 }
 
 function dateDay(day, month, year) {
-    if (day <= 28 && month == 02) return true;
+    if (day <= 28) return true;
     if (day == 29 && month == 02 && isLeapYear(year)) return true;
     if (day <= 30 && !(month == 02)) return true;
     if (day == 31 && month.match(/^01|03|05|07|08|10|12$/)) return true;
