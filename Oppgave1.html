@@ -7,8 +7,8 @@
     <script src="Oppgave1.js"></script>
 </head>
 <body>
-    <span>Skriv en dato:</span>
-    <input id="dateInput" type="text" maxlength="10" oninput="dateCheck(this)">
+    <span>Write a date:</span>
+    <input id="dateInput" type="text" maxlength="10" placeholder="DD.MM.YYYY" style="width: 85px" oninput="dateCheck(this)">
     <br><br>    
     <div id="result"></div>
     
@@ -17,7 +17,7 @@
         function dateCheck(date) {
             var date = date.value
             
-            document.getElementById('result').innerHTML = isDateValid(date); 
+            document.getElementById('result').innerHTML = isDateValid(date);
         }
 
     </script>

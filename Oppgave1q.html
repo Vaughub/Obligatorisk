@@ -74,13 +74,13 @@
         });
 
         QUnit.test("Not 30", function (assert) {
-            const actual = dateDay('30', '02', '2020');
+            const actual = dateDay('31', '04', '2020');
             const expected = false;
             assert.equal(actual, expected);
         });
 
         QUnit.test("Not 31", function (assert) {
-            const actual = dateDay('31', '04', '2020');
+            const actual = dateDay('32', '05', '2020');
             const expected = false;
             assert.equal(actual, expected);
         });
