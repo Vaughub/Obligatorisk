@@ -3,7 +3,7 @@ function isDateValid(date) {
     var month = date.slice(3, 5);
     var day = date.slice(0, 2);
 
-    return (dateLength(date) && dateDot(date) && dateYear(year) && dateMonth(month) && dateDay(day, month, year));
+    return dateLength(date) && dateDot(date) && dateYear(year) && dateMonth(month) && dateDay(day, month, year);
 }
 
 function dateLength(date) {
