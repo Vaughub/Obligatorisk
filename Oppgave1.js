@@ -3,8 +3,8 @@ function isDateValid(date) {
     var month = date.slice(3, 5);
     var day = date.slice(0, 2);
 
-    if (dateLength(date) && dateDot(date) && dateYear(year) && dateMonth(month) && dateDay(day, month, year)) return 'Valid date';
-    return 'Invalid date';
+    if (dateLength(date) && dateDot(date) && dateYear(year) && dateMonth(month) && dateDay(day, month, year)) return true;
+    return false;
 }
 
 function dateLength(date) {

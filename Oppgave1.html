@@ -16,8 +16,12 @@
 
         function dateCheck(date) {
             var date = date.value
-            
-            document.getElementById('result').innerHTML = isDateValid(date);
+
+            if (isDateValid(date) == true) {
+                document.getElementById('result').innerHTML = 'Valid date';
+            } else { 
+                document.getElementById('result').innerHTML = 'Invalid date';
+            }       
         }
 
     </script>
