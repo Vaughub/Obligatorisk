@@ -15,12 +15,13 @@
     <script>
 
         function dateCheck(date) {
-            var date = date.value
+            var date = date.value;
+            var element = document.getElementById('result');
 
             if (isDateValid(date) == true) {
-                document.getElementById('result').innerHTML = 'Valid date';
+                element.innerHTML = 'Valid date';
             } else { 
-                document.getElementById('result').innerHTML = 'Invalid date';
+                element.innerHTML = 'Invalid date';
             }       
         }
 
