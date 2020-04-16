@@ -23,10 +23,10 @@ function dateMonth(month) {
 }
 
 function dateDay(day, month, year) {
-    if (day <= 28) return true;
-    if (day == 29 && isLeapYear(year)) return true;
-    if (day <= 30 && !(month == 02)) return true;
-    if (day == 31 && month.match(/^01|03|05|07|08|10|12$/)) return true;
+    if (day >= 01 && day <= 28) return true;
+    if (day >= 01 && day == 29 && isLeapYear(year)) return true;
+    if (day >= 01 && day <= 30 && !(month == 02)) return true;
+    if (day >= 01 && day == 31 && month.match(/^01|03|05|07|08|10|12$/)) return true;
     return false;
 }
 
