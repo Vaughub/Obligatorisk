@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>QUnit Example</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+    <script src="Oppgave2.js"></script>
+
+    <script>
+        // mock-view
+        function show() { }
+
+        // model
+        let numbers = [7, 3, 1, 5, 8];
+        let selectBarNo;
+        let buttonState = 'disabled';
+        let inputValue;
+        let error = null;
+
+        QUnit.test("Select different bar", function (assert) {
+            selectBarNo = 2;
+            selectBar(1);
+            assert.equal(buttonState, null);
+            assert.equal(selectBarNo, 1);
+        });
+
+        QUnit.test("Select the same bar", function (assert) {
+            selectBarNo = 1;
+            selectBar(1);
+            assert.equal(buttonState, 'disabled');
+            assert.equal(selectBarNo, null);
+        });
+
+        QUnit.test("Remove bar", function (assert) {
+            selectBarNo = 1;
+            removeBar();
+            assert.equal(numbers.length, 4);
+            assert.equal(numbers[0], 3);
+            assert.equal(selectBarNo, null);
+            assert.equal(buttonState, 'disabled');
+            numbers = [7, 3, 1, 5, 8];
+        });
+
+        QUnit.test("Change bar", function (assert) {
+            selectBarNo = 1;
+            inputValue = 5;
+            changeBar();
+            assert.equal(numbers[selectBarNo - 1], 5);
+            assert.equal(error, null);
+            numbers = [7, 3, 1, 5, 8];
+        });
+
+        QUnit.test("Change bar invalid input", function (assert) {
+            selectBarNo = 1;
+            inputValue = 11;
+            changeBar();
+            assert.equal(numbers[selectBarNo - 1], 7);
+            assert.equal(error, 'Ugyldig verdi');
+        });
+
+        QUnit.test("Add bar", function (assert) {
+            inputValue = 5;
+            addBar();
+            assert.equal(numbers[5], 5);
+            assert.equal(error, null);
+            numbers = [7, 3, 1, 5, 8];
+        });
+
+        QUnit.test("Add bar invalid input", function (assert) {
+            inputValue = 11;
+            addBar();
+            assert.equal(numbers[5], undefined);
+            assert.equal(error, 'Ugyldig verdi');
+        });
+        
+    </script>
+</body>
+
+</html>
