@@ -21,21 +21,19 @@
         // model
         let numbers = [7, 3, 1, 5, 8];
         let selectBarNo;
-        let buttonState = 'disabled';
+        // let buttonState = 'disabled';
         let inputValue;
         let error = null;
 
         QUnit.test("Select different bar", function (assert) {
             selectBarNo = 2;
             selectBar(1);
-            assert.equal(buttonState, null);
             assert.equal(selectBarNo, 1);
         });
 
         QUnit.test("Select the same bar", function (assert) {
             selectBarNo = 1;
             selectBar(1);
-            assert.equal(buttonState, 'disabled');
             assert.equal(selectBarNo, null);
         });
 
@@ -45,7 +43,6 @@
             assert.equal(numbers.length, 4);
             assert.equal(numbers[0], 3);
             assert.equal(selectBarNo, null);
-            assert.equal(buttonState, 'disabled');
             numbers = [7, 3, 1, 5, 8];
         });
 
