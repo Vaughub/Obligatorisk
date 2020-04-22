@@ -1,10 +1,8 @@
 // controller
 function selectBar(barNo) {
     if (selectBarNo == barNo) {
-        buttonState = 'disabled';
         selectBarNo = null;
     } else {
-        buttonState = null;
         selectBarNo = barNo;
     }
     show();
@@ -13,7 +11,6 @@ function selectBar(barNo) {
 function removeBar() {
     numbers.splice(selectBarNo - 1, 1);
     selectBarNo = null;
-    buttonState = 'disabled';
     show();
 }
 

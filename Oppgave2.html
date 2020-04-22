@@ -15,7 +15,6 @@
         // model
         let numbers = [7, 3, 1, 5, 8];
         let selectBarNo;
-        let buttonState = 'disabled';
         let inputValue;
         let error = null;
     
@@ -23,6 +22,7 @@
         show();
         function show() {
             let svgInnerHtml = '';
+            let buttonState = selectBarNo == null ? 'disabled' : '';
             for (let i = 0; i < numbers.length; i++) {
                 svgInnerHtml += createBar(numbers[i], i + 1);
             }
@@ -35,8 +35,8 @@
                 Verdi:
                 <input type="number" min="1" max="10" value="${inputValue || ''}" oninput="inputValue = this.value"/> 
                 <button onclick="addBar()">Legg til stolpe</button>
-                <button ${buttonState || ''} onclick="changeBar()" >Endre valgt stolpe</button>
-                <button ${buttonState || ''} onclick="removeBar()">Fjerne valgt stolpe</button>
+                <button ${buttonState} onclick="changeBar()" >Endre valgt stolpe</button>
+                <button ${buttonState} onclick="removeBar()">Fjerne valgt stolpe</button>
                 <div id="error" style="color:red">${error || ''}</div>
                 `;
         }
